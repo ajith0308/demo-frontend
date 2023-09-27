@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 @Component({
@@ -10,24 +11,22 @@ export class UserComponent {
   formGroup: FormGroup;
   
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient) {
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) {
     this.formGroup = this.formBuilder.group({
-      username: ['', Validators.required],
+      name: ['', Validators.required],
       age: ['', Validators.required]
     });
   }
-  isFormValid() {
-    return this.formGroup.valid;
-  }
+
   onSubmit() {
     
     if (this.formGroup.valid) {
       const formData = this.formGroup.value;
       
-      this.http.post('', formData).subscribe(
+      this.http.post('https://users-7dmy.onrender.com/auth', formData).subscribe(
         (response: any) => {
           console.log('Data saved successfully!', response);
-          
+          this.router.navigate(['table']);
         },
         (error: any) => {
           console.error('Failed to save data:', error);
