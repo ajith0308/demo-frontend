@@ -3,12 +3,12 @@
 <form  [formGroup]="formGroup">
     <div class="container text-center">
     <label for="username">Name:</label>
-    <input type="text" id="username" formControlName="username" required>
+    <input type="text" id="username" formControlName="name" required>
     <br><br>
 
     <label for="age">Age:</label>
     <input type="number" id="age" formControlName="age"  required>
     <br><br>
     
-    <button type="submit" class="btn btn-primary" (click)="onSubmit()" >Submit</button></div>
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button></div>
 </form>
