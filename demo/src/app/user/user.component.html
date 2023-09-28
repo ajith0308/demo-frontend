@@ -1,65 +1,14 @@
-<body class="bg-image" style="background-image: url('https://images.megapixl.com/5057/50570988.jpg'); background-size: cover; background-repeat: no-repeat;background-attachment: fixed; height: 100vh; margin: 0;">
 <h1 class="text-center">User Information</h1>
 <br>
-<form [formGroup]="formGroup">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-4">
-                <div class="mb-3">
-                    <label for="username" >Name<span style="color: red;">*</span>:</label>
-                    <p *ngIf="formGroup.get('name')?.invalid && (formGroup.get('name')?.dirty || formGroup.get('name')?.touched)" style="color: red;">
-                        Name is required.
-                      </p>
-                    <input type="text" id="username" formControlName="name" class="form-control border-dark" required>
-                    
-                       </div>
+<form  [formGroup]="formGroup">
+    <div class="container text-center">
+    <label for="username">Name:</label>
+    <input type="text" id="username" formControlName="name" required>
+    <br><br>
 
-                <div class="mb-3">
-                    <label for="age" >Age <span style="color: red;">*</span>:</label>
-                    <p *ngIf="formGroup.get('age')?.invalid && (formGroup.get('age')?.dirty || formGroup.get('age')?.touched)" style="color: red;">
-                        Age is required.
-                      </p>
-                    <input type="number" id="age" formControlName="age" class="form-control border-dark" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="gender">Gender <span style="color: red;">*</span>:</label>
-                    <p *ngIf="formGroup.get('gender')?.invalid && (formGroup.get('gender')?.dirty || formGroup.get('gender')?.touched)" style="color: red;">
-                        Gender is required.
-                      </p>
-                    <select id="gender" formControlName="gender" class="form-select border-dark">
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-
-                <div class="mb-3">
-                    <label for="phone_number">Phone Number <span style="color: red;">*</span>:</label>
-                    <p *ngIf="formGroup.get('phone_number')?.invalid && (formGroup.get('phone_number')?.dirty || formGroup.get('phone_number')?.touched)" style="color: red;">
-                        Please enter a valid phone number.
-                      </p>
-                      
-                    <input type="tel" id="phone_number" formControlName="phone_number" class="form-control border-dark" required>
-                    
-                   
-                </div>
-
-                <div class="mb-3">
-                    <label for="email">Email <span style="color: red;">*</span>:</label>
-                    <p *ngIf="formGroup.get('email')?.invalid && (formGroup.get('email')?.dirty || formGroup.get('email')?.touched)" style="color: red;">
-                        Please enter a valid email address.
-                      </p>
-                      
-                    <input type="email" id="email" formControlName="email" class="form-control border-dark" required>
-                   
-                </div>
-
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary" (click)="onSubmit()" [disabled]="!formGroup.valid">Submit</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <label for="age">Age:</label>
+    <input type="number" id="age" formControlName="age"  required>
+    <br><br>
+    
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button></div>
 </form>
-</body>
