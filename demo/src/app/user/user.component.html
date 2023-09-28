@@ -1,5 +1,7 @@
 <body class="bg-image" style="background-image: url('https://images.megapixl.com/5057/50570988.jpg'); background-size: cover; background-repeat: no-repeat;background-attachment: fixed; height: 100vh; margin: 0;">
+<button type="submit" class="btn btn-primary float-end" routerLink="table">View Table</button>
 <h1 class="text-center">User Information</h1>
+
 <br>
 <form [formGroup]="formGroup">
     <div class="container">
@@ -57,9 +59,24 @@
 
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary" (click)="onSubmit()" [disabled]="!formGroup.valid">Submit</button>
+                    <div *ngIf="loading" id="loader" class="loader-overlay">
+                        <div class="spinner-border text-primary" role="status">
+                          <span class="visually-hidden">Loading...</span>
+                        </div>
+                      </div>
                 </div>
             </div>
         </div>
     </div>
+   
+      
+      <!-- Success Toast -->
+      <div id="successToast" class="toast align-items-center text-white bg-success" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true" style="position: fixed; bottom: 20px; right: 20px;">
+        <div class="d-flex">
+          <div class="toast-body">
+            Data saved successfully!
+          </div>
+        </div>
+      </div>
 </form>
 </body>
