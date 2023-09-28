@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-table',
@@ -7,22 +8,30 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
-  data: any;
+
+  dtoptions: DataTables.Settings = {};
+  data: any[] = [];
   error: string | null = null;
+  dtTrigger: Subject<any>=new Subject<any>()
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
-  ngOnInit() {  
-    const apiUrl = 'https://users-7dmy.onrender.com/auth/users';
+  ngOnInit(): void {
+    this.dtoptions = {
+      pagingType: 'simple_numbers'
+    };
+
+    const apiUrl = 'https://demouser.onrender.com/auth/users';
 
     this.httpClient.get(apiUrl).subscribe(
-      (response) => {
+      (response: any) => {
         this.data = response;
+        this.dtTrigger.next(null);
       },
       (error) => {
         this.error = 'An error occurred while fetching data.';
         console.error(error);
       }
-    );  
+    );
   }
 }
