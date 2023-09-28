@@ -14,7 +14,10 @@ export class UserComponent {
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) {
     this.formGroup = this.formBuilder.group({
       name: ['', Validators.required],
-      age: ['', Validators.required]
+      age: ['', Validators.required],
+      gender: ['', Validators.required], 
+      phone_number: ['',[Validators.required, Validators.pattern(/^\d{10}$/)]], 
+      email: ['',[Validators.required, Validators.email]],
     });
   }
 
@@ -23,7 +26,7 @@ export class UserComponent {
     if (this.formGroup.valid) {
       const formData = this.formGroup.value;
       
-      this.http.post('https://users-7dmy.onrender.com/auth', formData).subscribe(
+      this.http.post('https://demouser.onrender.com/auth', formData).subscribe(
         (response: any) => {
           console.log('Data saved successfully!', response);
           this.router.navigate(['table']);
@@ -34,5 +37,6 @@ export class UserComponent {
         }
       );
     }
+   
   }
 }
