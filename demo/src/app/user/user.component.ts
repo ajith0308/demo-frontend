@@ -16,7 +16,7 @@ export class UserComponent {
     this.formGroup = this.formBuilder.group({
       name: ['', Validators.required],
       age: ['', Validators.required],
-      gender: ['', Validators.required], 
+      gender: ['', Validators.required],
       phone_number: ['',[Validators.required, Validators.pattern(/^\d{10}$/)]], 
       email: ['',[Validators.required, Validators.email]],
     });

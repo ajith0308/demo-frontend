@@ -8,13 +8,15 @@ import { UserComponent } from './user/user.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableComponent } from './table/table.component';
+import { ButtonComponent } from './button/button.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
-    TableComponent
+    TableComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,
