@@ -17,6 +17,7 @@ export class UserComponent {
       name: ['', Validators.required],
       age: ['',[Validators.required, this.ageRangeValidator(100)] ],
       gender: ['', Validators.required], 
+
       phone_number: ['',[Validators.required, Validators.pattern(/^\d{10}$/)]], 
       email: ['',[Validators.required, Validators.email]],
     });
