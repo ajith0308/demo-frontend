@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import 'bootstrap';
 @Component({
@@ -15,7 +15,7 @@ export class UserComponent {
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) {
     this.formGroup = this.formBuilder.group({
       name: ['', Validators.required],
-      age: ['', Validators.required],
+      age: ['',[Validators.required, this.ageRangeValidator(100)] ],
       gender: ['', Validators.required], 
       phone_number: ['',[Validators.required, Validators.pattern(/^\d{10}$/)]], 
       email: ['',[Validators.required, Validators.email]],
@@ -37,6 +37,7 @@ export class UserComponent {
         (error: any) => {
           console.error('Failed to save data:', error);
           this.loading = false;
+          
         }
       );
     }
@@ -51,5 +52,12 @@ export class UserComponent {
       }, 500); // Adjust the delay time (e.g., 1000 milliseconds = 1seconds)
     }
   }
-  
+  ageRangeValidator(max: number): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: any } | null => {
+      if (control.value !== null && (isNaN(control.value) || control.value > max)) {
+        return { 'ageRange': true };
+      }
+      return null;
+    };
+  }
 }
