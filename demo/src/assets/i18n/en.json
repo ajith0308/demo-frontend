@@ -1,0 +1,22 @@
+{
+  "user_info": "User Information",
+  "name": "Name",
+  "age": "Age",
+  "gender": "Gender",
+  "phone_number": "Phone Number",
+  "email": "Email",
+  "submit": "Submit",
+  "mandatory_fields": "Please fill in all the mandatory fields.",
+  "name_required": "Name is required.",
+  "age_required": "Age is required.",
+  "age_invalid": "Age must be less than or equal to 100.",
+  "gender_required": "Gender is required.",
+  "phone_invalid": "Please enter a valid phone number.",
+  "email_invalid": "Please enter a valid email address.",
+  "success_message": "Data saved successfully!",
+  "male": "Male",
+  "female": "Female",
+  "others": "Others",
+  "button.view_table": "View Table",
+  "select_language": "Select Language"
+}
