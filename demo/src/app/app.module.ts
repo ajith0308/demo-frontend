@@ -9,6 +9,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableComponent } from './table/table.component';
 import { ButtonComponent } from './button/button.component';
+import { LoginComponent } from './login/login.component';
+import { EditComponent } from './edit/edit.component';
+
 
 
 @NgModule({
@@ -16,7 +19,9 @@ import { ButtonComponent } from './button/button.component';
     AppComponent,
     UserComponent,
     TableComponent,
-    ButtonComponent
+    ButtonComponent,
+    LoginComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,23 @@
+<div class="modal" [ngClass]="{ 'show': modalVisible }" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Row</h5>
+          <button type="button" class="close" (click)="onCancelEdit()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Add form fields here for editing -->
+          <label>Name</label>
+          <input [(ngModel)]="editedItem.name" class="form-control">
+          <!-- Add more fields for age, email, gender, phone_number, etc. -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="onCancelEdit()">Cancel</button>
+          <button type="button" class="btn btn-primary" (click)="onSaveEdit()">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

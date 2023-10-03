@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Include your custom CSS if needed -->
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <!-- <link rel="stylesheet" href="custom.css"> -->
+</head>
+
+<body>
+    <div class="fullscreen-bg">
+        <div class="container">
+        <div class="row justify-content-center">
+            <h1 class="text-center pt-5 text-white">Welcome !!</h1>
+            <div class="col-md-6">
+                <div class="card m-5 bg-transparent border border-white">
+                    <div class="card-header border border-white border-2">
+                        <h3 class="text-center text-white">Login</h3>
+                    </div>
+                    <div class="card-body border border-white border-2 rounded">
+                        <form [formGroup]="loginForm" (ngSubmit)="login()">
+                            <div class="form-group text-white">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control bg-transparent border-white border-2" id="email" placeholder="Enter your email"
+                                    formControlName="email">
+                                <div *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched"
+                                    class="text-danger">*Email is required.</div>
+                                <div *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched"
+                                    class="text-danger">*Please enter a valid email.</div>
+                            </div>
+                            <div class="form-group text-white">
+                                <label for="password">Password</label>
+                                <div class="input-group">
+                                    <input [type]="showPassword ? 'text' : 'password'" class="form-control bg-transparent border-white border-2"
+                                        id="password" placeholder="Enter your password" formControlName="password">
+                                    <div class="input-group-append">
+                                        <button type="button" class="btn btn-outline-secondary border-white border-1"
+                                            (click)="togglePasswordVisibility()">
+                                            <i class="fas" [class.fa-eye]="!showPassword"
+                                                [class.fa-eye-slash]="showPassword"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched"
+                                    class="text-danger">*Password is required.</div>
+
+                            </div><br>
+                            <button type="submit" class="btn btn-primary btn-block">Login</button><br>
+                            <h6 class="text-center text-white">Don't have account? <a routerLink="">Register</a></h6>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html> 
