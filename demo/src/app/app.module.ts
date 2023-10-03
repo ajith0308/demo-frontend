@@ -11,6 +11,9 @@ import { TableComponent } from './table/table.component';
 import { ButtonComponent } from './button/button.component';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { LoginComponent } from './login/login.component';
+import { EditComponent } from './edit/edit.component';
+
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -21,7 +24,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     UserComponent,
     TableComponent,
-    ButtonComponent
+    ButtonComponent,
+    LoginComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
