@@ -1,0 +1,22 @@
+{
+    "user_info": "Información del Usuario",
+    "name": "Nombre",
+    "age": "Edad",
+    "gender": "Género",
+    "phone_number": "Número de Teléfono",
+    "email": "Correo Electrónico",
+    "submit": "Enviar",
+    "mandatory_fields": "Por favor, complete todos los campos obligatorios.",
+    "name_required": "El nombre es obligatorio.",
+    "age_required": "La edad es obligatoria.",
+    "age_invalid": "La edad debe ser menor o igual a 100.",
+    "gender_required": "El género es obligatorio.",
+    "phone_invalid": "Por favor, ingrese un número de teléfono válido.",
+    "email_invalid": "Por favor, ingrese una dirección de correo electrónico válida.",
+    "success_message": "¡Datos guardados exitosamente!",
+    "male": "Hombre",
+    "female": "Mujer",
+    "others": "Otros",
+    "button.view_table": "Ver Tabla",
+    "select_language": "Seleccionar Idioma"
+  }

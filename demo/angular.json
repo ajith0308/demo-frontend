@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "localize": true,
             "outputPath": "dist/demo",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -33,7 +34,7 @@
 
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/datatables.net/js/jquery.dataTables.min.js",
-              "node_modules/datatables.net-bs5/js/dataTables.bootstrap5.min.js"
+              "node_modules/datatables.net-bs5/js/dataTables.bootstrap5.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           },
@@ -105,10 +106,14 @@
             ]
           }
         }
-      }
-    }
+      },
+     
+     "cli": {
+    "analytics": "5babef73-06e1-426e-8650-1eeff7df0150"
+  }
+}
   },
   "cli": {
-    "analytics": "5babef73-06e1-426e-8650-1eeff7df0150"
+    "analytics": false
   }
 }

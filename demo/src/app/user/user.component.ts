@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import 'bootstrap';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -11,8 +12,8 @@ import 'bootstrap';
 export class UserComponent {
   formGroup: FormGroup;
   loading = false;
-
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) {
+  // language:string= 'es';
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router,private translate: TranslateService) {
     this.formGroup = this.formBuilder.group({
       name: ['', Validators.required],
       age: ['',[Validators.required, this.ageRangeValidator(100)] ],
@@ -21,7 +22,18 @@ export class UserComponent {
       phone_number: ['',[Validators.required, Validators.pattern(/^\d{10}$/)]], 
       email: ['',[Validators.required, Validators.email]],
     });
+  
+      // Set the default language
+      this.translate.setDefaultLang('en');
+    
+    // translate.setDefaultLang('en');
+    // translate.use('en'); // Set the default language
   }
+  changeLanguage(language: string){
+    this.translate.use(language); // Change the active language
+    
+    
+  } 
 
   onSubmit() {
     
